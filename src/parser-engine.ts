@@ -354,6 +354,7 @@ export class ParserEngine {
 
 		for (let i = 0; i < files.length; i++) {
 			let file = files[i];
+			if (file.match(/\.map$/)) continue;
 
 			if (fs.statSync(path.join(dir, file)).isDirectory()) {
 				filelist = this.walkSync(path.join(dir, file), filelist, fileExtension);
